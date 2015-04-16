@@ -1,0 +1,12 @@
+c:\users\morgan\documents\visual studio 2013\Projects\VeriHash\VeriHash\bin\Debug\VeriHash.exe.config
+c:\users\morgan\documents\visual studio 2013\Projects\VeriHash\VeriHash\bin\Debug\VeriHash.exe
+c:\users\morgan\documents\visual studio 2013\Projects\VeriHash\VeriHash\bin\Debug\VeriHash.pdb
+c:\users\morgan\documents\visual studio 2013\Projects\VeriHash\VeriHash\obj\Debug\VeriHash.csprojResolveAssemblyReference.cache
+c:\users\morgan\documents\visual studio 2013\Projects\VeriHash\VeriHash\obj\Debug\VeriHash.Properties.Resources.resources
+c:\users\morgan\documents\visual studio 2013\Projects\VeriHash\VeriHash\obj\Debug\VeriHash.csproj.GenerateResource.Cache
+c:\users\morgan\documents\visual studio 2013\Projects\VeriHash\VeriHash\obj\Debug\VeriHash.exe
+c:\users\morgan\documents\visual studio 2013\Projects\VeriHash\VeriHash\obj\Debug\VeriHash.pdb
+c:\users\morgan\documents\visual studio 2013\Projects\VeriHash\VeriHash\obj\Debug\VeriHash.VeriHash.resources
+E:\Repo\VeriHash\VeriHash\bin\Debug\VeriHash.exe.config
+E:\Repo\VeriHash\VeriHash\obj\Debug\VeriHash.exe
+E:\Repo\VeriHash\VeriHash\obj\Debug\VeriHash.pdb
