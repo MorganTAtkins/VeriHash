@@ -10,18 +10,60 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.IO;
+using Microsoft.Win32;
+using System.Reflection;
+using System.Security;
+using System.Security.AccessControl;
+
 
 
 namespace VeriHash
 {
     public partial class VeriHash : Form
     {
-        String copiedHash01;
-        public String hashValueString;
+        string copiedHash01;
+        string hashValueString;
+
         public VeriHash()
         {
             InitializeComponent();
-        }
+
+            RegistrySecurity rs = new RegistrySecurity();
+
+            // Allow the current user to read and delete the key. 
+            //
+            rs.AddAccessRule(new RegistryAccessRule(Environment.UserName,
+                RegistryRights.WriteKey | RegistryRights.Delete,
+                InheritanceFlags.None,
+                PropagationFlags.None,
+                AccessControlType.Allow));
+
+
+
+
+            const string MenuName = "Folder\\shell\\NewMenuOption";
+            const string Command = "Folder\\shell\\NewMenuOption\\command";
+
+            //File.SetAccessControl(MenuName, rs);
+            //File.SetAccessControl(Command, rs);
+
+            RegistryKey root = null;
+            RegistryKey rk = null;
+            try
+            {
+                //RegistryKey root;
+                //RegistryKey rk;
+
+                root = Registry.LocalMachine;
+                rk = root.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\ShellExecuteHooks", true);
+                rk.SetValue("CLSID", ".Net ISO 8601 Date Parser Shell Extension");
+                rk.Close();
+            }
+            catch (Exception e)
+            {
+                System.Console.Error.WriteLine(e.ToString());
+            }
+        } 
                 
         public string GetHash(string file)
         {
@@ -44,8 +86,6 @@ namespace VeriHash
                 for (int i = 0; i < hashValue.Length; i++)
                 {
                     sBuilder.Append(hashValue[i].ToString("x2"));
-                    //String hashValueString = Convert.ToString (sBuilder);
-                    // Write the hash value to the Console.
                 }
                 hashValueString = Convert.ToString(sBuilder);
                 // Write the hash value to the Console.
@@ -75,12 +115,7 @@ namespace VeriHash
             {
                 label3.Text = "No match";
                 label3.ForeColor = System.Drawing.Color.Red;
-
             }
-
-          
-           
-
         }
 
         private void Copied_TextChanged(object sender, EventArgs e)
@@ -113,6 +148,11 @@ namespace VeriHash
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
