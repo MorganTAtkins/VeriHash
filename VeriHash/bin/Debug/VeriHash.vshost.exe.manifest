@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VeriHash.exe" size="12752">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VeriHash.exe" size="13776">
       <assemblyIdentity name="VeriHash" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>a5xJiDV2/bhXQ3EQ20ZkIh+/LquNmMsp4Jh7pDJ2KhM=</dsig:DigestValue>
+        <dsig:DigestValue>/d6kM005NE9v6Wc6/bI5OcG18uJs78c2BAKqHeRHwa0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

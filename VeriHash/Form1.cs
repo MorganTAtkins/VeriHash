@@ -24,6 +24,9 @@ namespace VeriHash
         string copiedHash01;
         string hashValueString;
 
+        const string MenuName = "*\\shell\\VeriHash";
+        const string Command = "*\\shell\\VeriHash\\command";
+
         public VeriHash()
         {
             InitializeComponent();
@@ -31,18 +34,11 @@ namespace VeriHash
             RegistrySecurity rs = new RegistrySecurity();
 
             // Allow the current user to read and delete the key. 
-            //
             rs.AddAccessRule(new RegistryAccessRule(Environment.UserName,
-                RegistryRights.WriteKey | RegistryRights.Delete,
+                RegistryRights.WriteKey | RegistryRights.ReadKey | RegistryRights.Delete,
                 InheritanceFlags.None,
                 PropagationFlags.None,
                 AccessControlType.Allow));
-
-
-
-
-            const string MenuName = "Folder\\shell\\NewMenuOption";
-            const string Command = "Folder\\shell\\NewMenuOption\\command";
 
             //File.SetAccessControl(MenuName, rs);
             //File.SetAccessControl(Command, rs);
@@ -51,13 +47,13 @@ namespace VeriHash
             RegistryKey rk = null;
             try
             {
-                //RegistryKey root;
-                //RegistryKey rk;
-
                 root = Registry.LocalMachine;
                 rk = root.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\ShellExecuteHooks", true);
                 rk.SetValue("CLSID", ".Net ISO 8601 Date Parser Shell Extension");
                 rk.Close();
+                Debug.WriteLine(Command);
+                label2.Text = Command;
+                label4.Text = MenuName;
             }
             catch (Exception e)
             {
@@ -142,11 +138,7 @@ namespace VeriHash
                 path = file.FileName.ToString();
                 textBox1.Text = GetHash(path);
             }
-            
-
-
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -155,6 +147,17 @@ namespace VeriHash
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            label2.Text = Command;
+            label4.Text = MenuName;
         }
     }
 }
